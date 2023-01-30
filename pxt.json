@@ -8,15 +8,13 @@
         "main.blocks",
         "main.ts",
         "README.md",
-        "assets.json",
-        "tilemap.g.jres",
-        "tilemap.g.ts"
+        "assets.json"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.11.37",
+        "target": "1.12.17",
         "targetId": "arcade"
     },
     "supportedTargets": [

@@ -1,7 +1,7 @@
 namespace SpriteKind {
     export const goomba = SpriteKind.create()
 }
-function goomba () {
+function goomba2 () {
     for (let valeur of tiles.getTilesByType(assets.tile`myTile14`)) {
         kaka = sprites.create(img`
             . . . . . . f f f f . . . . . . 
@@ -30,9 +30,6 @@ function goomba () {
         }
     }
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
-    game.over(false, effects.dissolve)
-})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Mario.vy == 0) {
         Mario.vy = -200
@@ -47,9 +44,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba, function (sprite, otherS
 })
 let kaka: Sprite = null
 let Mario: Sprite = null
-tiles.setCurrentTilemap(tilemap`niveau1`)
+goomba2()
 info.setLife(3)
-goomba()
 Mario = sprites.create(img`
     . . . . . 2 2 2 2 2 . . . . . . 
     . . . . 2 2 2 2 2 2 2 2 2 . . . 

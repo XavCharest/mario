@@ -47,7 +47,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba, function (sprite, otherS
 })
 let kaka: Sprite = null
 let Mario: Sprite = null
-tiles.setCurrentTilemap(tilemap`niveau1`)
+tiles.setCurrentTilemap(tilemap`niveau2`)
 info.setLife(3)
 Mario = sprites.create(img`
     . . . . . 2 2 2 2 2 . . . . . . 

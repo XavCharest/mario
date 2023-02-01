@@ -5,7 +5,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, lo
     game.over(false, effects.dissolve)
 })
 function goomba2 () {
-    for (let valeur of tiles.getTilesByType(assets.tile`myTile14`)) {
+    for (let valeur of tiles.getTilesByType(img`
+                myTile14
+            `)) {
         kaka = sprites.create(img`
             . . . . . . f f f f . . . . . . 
             . . . . f f e e e e f f . . . . 
@@ -38,12 +40,12 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         Mario.vy = -200
     }
 })
-info.onLifeZero(function () {
-    game.gameOver(false)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba, function (sprite2, otherSprite) {
     info.changeLifeBy(-1)
     kaka.destroy()
+})
+info.onLifeZero(function () {
+    game.gameOver(false)
 })
 let kaka: Sprite = null
 let Mario: Sprite = null
@@ -73,7 +75,7 @@ Mario.y = 220
 Mario.ay = 400
 scene.cameraFollowSprite(Mario)
 game.onUpdate(function () {
-    for (let valeur of sprites.allOfKind(SpriteKind.goomba)) {
+    for (let valeur2 of sprites.allOfKind(SpriteKind.goomba)) {
         if (kaka.isHittingTile(CollisionDirection.Left)) {
             kaka.vx = 50
         } else if (kaka.isHittingTile(CollisionDirection.Right)) {

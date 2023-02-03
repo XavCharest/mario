@@ -1,9 +1,6 @@
 namespace SpriteKind {
     export const goomba = SpriteKind.create()
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
-    game.over(false, effects.dissolve)
-})
 function goomba2 () {
     for (let valeur of tiles.getTilesByType(assets.tile`myTile4`)) {
         kaka = sprites.create(img`
@@ -37,14 +34,176 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Mario.vy == 0) {
         Mario.vy = -200
     }
+    animation.runImageAnimation(
+    Mario,
+    [img`
+        . . . . . . 2 2 2 2 2 . . . . . 
+        . . . e . 2 2 2 2 2 2 2 2 2 . . 
+        . d d e e e e e d d e d . . . . 
+        . d d e d d e d d d d d d d . . 
+        . . d e d d e e d d d e e d d . 
+        . . d d e d d d d d d d e e . . 
+        . . . d d d d d d d d d d . . . 
+        . . . 2 2 2 c c c 2 d d . . . . 
+        . . 2 2 d d d c 2 2 c c c . . . 
+        . . 2 c d d d c c c c c c . . . 
+        . . 2 2 2 d d c c c c c c . . . 
+        . . . 2 2 2 2 2 c c c c . . . . 
+        . . . . c c c 2 2 2 2 . . . . . 
+        . c . c c c c c c c . . . . . . 
+        . c c c 2 2 . . . . . . . . . . 
+        . . c c c c . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . d d . . 
+        . . . . . 2 2 2 2 2 . . d d . . 
+        . . . . 2 2 2 2 2 2 2 2 2 d . . 
+        . . . . e e e d d e d . c c . . 
+        . . . e d e d d d e d d c c . . 
+        . . . e d e e d d d e d d d . . 
+        . . . e e d d d d e e e e . . . 
+        . . . . . d d d d d d c . . . . 
+        . . c c c 2 c c c 2 c . . . . . 
+        . c c c c c 2 c c c 2 . . . . . 
+        d d c c c c 2 2 2 2 2 . . c . . 
+        d d d 2 2 2 2 5 2 2 5 2 c c . . 
+        . d . 2 2 2 2 2 2 2 2 2 c c . . 
+        . . c c 2 2 2 2 2 2 2 2 c c . . 
+        c c c 2 2 2 2 2 2 2 . . . . . . 
+        c c . . 2 2 2 . . . . . . . . . 
+        `],
+    1000,
+    true
+    )
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba, function (sprite2, otherSprite) {
     info.changeLifeBy(-1)
     kaka.destroy()
 })
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    Mario,
+    [img`
+        . . . . . 2 2 2 2 2 . . . . . . 
+        . . . . 2 2 2 2 2 2 2 2 2 . . . 
+        . . . . e e e d d e d . . . . . 
+        . . . e d e d d d e d d d . . . 
+        . . . e d e e d d d e d d d . . 
+        . . . e e d d d d e e e e . . . 
+        . . . . . d d d d d d d . . . . 
+        . . c c c c 2 2 c c . . . . . . 
+        d d c c c c 2 2 2 c c c d d d . 
+        d d d . c c 2 5 2 2 2 c c d d . 
+        d d . . 2 2 2 2 2 2 2 2 2 . c . 
+        . . . 2 2 2 2 2 2 2 2 2 2 c c . 
+        . . 2 2 2 2 2 2 2 2 2 2 2 c c . 
+        . c c c 2 2 2 . . . 2 2 2 c c . 
+        . c c c . . . . . . . . . . . . 
+        . . c c c . . . . . . . . . . . 
+        `,img`
+        . . . . . 2 2 2 2 2 . . . . . . 
+        . . . . 2 2 2 2 2 2 2 2 2 . . . 
+        . . . . e e e d d e d . . . . . 
+        . . . e d e d d d e d d d . . . 
+        . . . e d e e d d d e d d d . . 
+        . . . e e d d d d e e e e . . . 
+        . . . . . d d d d d d d . . . . 
+        . . . . c c c c c 2 c . d . . . 
+        . . . d c c c c c c c d d d . . 
+        . . . d c c c c c c d d d d . . 
+        . . d d 2 c c c c c c d d . . . 
+        . . c c 2 2 2 2 2 2 2 2 . . . . 
+        . . c 2 2 2 2 2 2 2 2 2 . . . . 
+        . . c 2 2 2 2 2 . 2 2 . . . . . 
+        . c . . . . . . c c c . . . . . 
+        . c . . . . . . c c c c . . . . 
+        `,img`
+        . . . . . 2 2 2 2 2 . . . . . . 
+        . . . . 2 2 2 2 2 2 2 2 2 . . . 
+        . . . . e e e d d e d . . . . . 
+        . . . e d e d d d e d d d . . . 
+        . . . e d e e d d d e d d d . . 
+        . . . e e d d d d e e e e . . . 
+        . . . . . d d d d d d d . . . . 
+        . . . . c c 2 c c c . . . . . . 
+        . . . c c c c 2 2 c c . . . . . 
+        . . . c c c 2 2 5 2 2 . . . . . 
+        . . . c c c 2 2 2 2 2 2 . . . . 
+        . . . c c c d d d 2 2 2 . . . . 
+        . . . . c c d d 2 2 2 . . . . . 
+        . . . . 2 2 2 2 c c c . . . . . 
+        . . . . c c c c c c c c . . . . 
+        . . . . c c c c c . . . . . . . 
+        `],
+    200,
+    true
+    )
+})
 info.onLifeZero(function () {
     game.gameOver(false)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite, location) {
+    info.changeLifeBy(-1)
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    Mario,
+    [img`
+        . . . . . . 2 2 2 2 2 . . . . . 
+        . . . 2 2 2 2 2 2 2 2 2 . . . . 
+        . . . . . d e d d e e e . . . . 
+        . . . d d d e d d d e d e . . . 
+        . . d d d e d d d e e d e . . . 
+        . . . e e e e d d d d e e . . . 
+        . . . . d d d d d d d . . . . . 
+        . . . . . . c c 2 2 c c c c . . 
+        . d d d c c c 2 2 2 c c c c d d 
+        . d d c c 2 2 2 5 2 c c . d d d 
+        . c . 2 2 2 2 2 2 2 2 2 . . d d 
+        . c c 2 2 2 2 2 2 2 2 2 2 . . . 
+        . c c 2 2 2 2 2 2 2 2 2 2 2 . . 
+        . c c 2 2 2 . . . 2 2 2 c c c . 
+        . . . . . . . . . . . . c c c . 
+        . . . . . . . . . . . c c c . . 
+        `,img`
+        . . . . . . 2 2 2 2 2 . . . . . 
+        . . . 2 2 2 2 2 2 2 2 2 . . . . 
+        . . . . . d e d d e e e . . . . 
+        . . . d d d e d d d e d e . . . 
+        . . d d d e d d d e e d e . . . 
+        . . . e e e e d d d d e e . . . 
+        . . . . d d d d d d d . . . . . 
+        . . . d . c 2 c c c c c . . . . 
+        . . d d d c c c c c c c d . . . 
+        . . . d d d c c c c c c d . . . 
+        . . . d d c c c c c c 2 d d . . 
+        . . . . 2 2 2 2 2 2 2 2 c c . . 
+        . . . . 2 2 2 2 2 2 2 2 2 c . . 
+        . . . . . 2 2 . 2 2 2 2 2 c . . 
+        . . . . . c c c . . . . . . c . 
+        . . . . c c c c . . . . . . c . 
+        `,img`
+        . . . . . . 2 2 2 2 2 . . . . . 
+        . . . 2 2 2 2 2 2 2 2 2 . . . . 
+        . . . . . d e d d e e e . . . . 
+        . . . d d d e d d d e d e . . . 
+        . . d d d e d d d e e d e . . . 
+        . . . e e e e d d d d e e . . . 
+        . . . . d d d d d d d . . . . . 
+        . . . . . . c c c 2 c c . . . . 
+        . . . . . c c 2 2 c c c c . . . 
+        . . . . . 2 2 5 2 2 c c c . . . 
+        . . . . 2 2 2 2 2 2 c c c . . . 
+        . . . . 2 2 2 d d d c c c . . . 
+        . . . . . 2 2 2 d d c c . . . . 
+        . . . . . c c c 2 2 2 2 . . . . 
+        . . . . c c c c c c c c . . . . 
+        . . . . . . . c c c c c . . . . 
+        `],
+    200,
+    true
+    )
+})
+let deplacement = false
 let kaka: Sprite = null
 let Mario: Sprite = null
 tiles.setCurrentTilemap(tilemap`niveau1`)
@@ -52,20 +211,20 @@ info.setLife(3)
 Mario = sprites.create(img`
     . . . . . 2 2 2 2 2 . . . . . . 
     . . . . 2 2 2 2 2 2 2 2 2 . . . 
-    . . . . e e e d d f d . . . . . 
-    . . . e d e d d d f d d d . . . 
+    . . . . e e e d d e d . . . . . 
+    . . . e d e d d d e d d d . . . 
     . . . e d e e d d d e d d d . . 
-    . . . . e d d d d e e e e . . . 
+    . . . e e d d d d e e e e . . . 
     . . . . . d d d d d d d . . . . 
-    . . . . 2 2 8 2 2 2 8 2 2 . . . 
-    . . . 2 2 2 8 2 2 2 8 2 2 2 . . 
-    . . 2 2 2 2 8 8 8 8 8 2 2 2 2 . 
-    . . d d 2 8 5 8 8 8 5 8 2 d d . 
-    . . d d d 8 8 8 8 8 8 8 d d d . 
-    . . d d 8 8 8 8 8 8 8 8 8 d d . 
-    . . . . 8 8 8 . . . 8 8 8 . . . 
-    . . . f f f . . . . . f f f . . 
-    . . f f f f . . . . . f f f f . 
+    . . . . c c 2 c c c . . . . . . 
+    . . . c c c c 2 2 c c . . . . . 
+    . . . c c c 2 2 5 2 2 . . . . . 
+    . . . c c c 2 2 2 2 2 2 . . . . 
+    . . . c c c d d d 2 2 2 . . . . 
+    . . . . c c d d 2 2 2 . . . . . 
+    . . . . 2 2 2 2 c c c . . . . . 
+    . . . . c c c c c c c c . . . . 
+    . . . . c c c c c . . . . . . . 
     `, SpriteKind.Player)
 controller.moveSprite(Mario, 100, 0)
 Mario.x = 24
@@ -79,5 +238,11 @@ game.onUpdate(function () {
         } else if (kaka.isHittingTile(CollisionDirection.Right)) {
             kaka.vx = -50
         }
+    }
+})
+game.onUpdate(function () {
+    deplacement = controller.left.isPressed() || (controller.right.isPressed() || (controller.up.isPressed() || controller.down.isPressed()))
+    if (!(deplacement)) {
+        animation.stopAnimation(animation.AnimationTypes.All, Mario)
     }
 })

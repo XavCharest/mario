@@ -71,7 +71,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         c c c 2 2 2 2 2 2 2 . . . . . . 
         c c . . 2 2 2 . . . . . . . . . 
         `],
-    1000,
+    500,
     true
     )
 })

@@ -5,9 +5,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, lo
     game.over(false, effects.dissolve)
 })
 function goomba2 () {
-    for (let valeur of tiles.getTilesByType(img`
-                myTile14
-            `)) {
+    for (let valeur of tiles.getTilesByType(assets.tile`myTile4`)) {
         kaka = sprites.create(img`
             . . . . . . f f f f . . . . . . 
             . . . . f f e e e e f f . . . . 

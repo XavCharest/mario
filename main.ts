@@ -349,8 +349,8 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 let deplacement = false
 let kaka: Sprite = null
 let Mario: Sprite = null
-tiles.setCurrentTilemap(tilemap`niveau1`)
 goomba2()
+tiles.setCurrentTilemap(tilemap`niveau1`)
 info.setLife(3)
 Mario = sprites.create(img`
     . . . . . 2 2 2 2 2 . . . . . . 

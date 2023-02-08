@@ -1,5 +1,7 @@
 namespace SpriteKind {
     export const goomba = SpriteKind.create()
+    export const animation = SpriteKind.create()
+    export const blockMystere = SpriteKind.create()
 }
 function goomba2 () {
     for (let valeur of tiles.getTilesByType(assets.tile`myTile4`)) {
@@ -34,115 +36,256 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Mario.vy == 0) {
         Mario.vy = -200
     }
-    animation.runImageAnimation(
-    Mario,
-    [img`
-        . . . . . . 2 2 2 2 2 . . . . . 
-        . . . e . 2 2 2 2 2 2 2 2 2 . . 
-        . d d e e e e e d d e d . . . . 
-        . d d e d d e d d d d d d d . . 
-        . . d e d d e e d d d e e d d . 
-        . . d d e d d d d d d d e e . . 
-        . . . d d d d d d d d d d . . . 
-        . . . 2 2 2 c c c 2 d d . . . . 
-        . . 2 2 d d d c 2 2 c c c . . . 
-        . . 2 c d d d c c c c c c . . . 
-        . . 2 2 2 d d c c c c c c . . . 
-        . . . 2 2 2 2 2 c c c c . . . . 
-        . . . . c c c 2 2 2 2 . . . . . 
-        . c . c c c c c c c . . . . . . 
-        . c c c 2 2 . . . . . . . . . . 
-        . . c c c c . . . . . . . . . . 
-        `,img`
-        . . . . . . . . . . . . d d . . 
-        . . . . . 2 2 2 2 2 . . d d . . 
-        . . . . 2 2 2 2 2 2 2 2 2 d . . 
-        . . . . e e e d d e d . c c . . 
-        . . . e d e d d d e d d c c . . 
-        . . . e d e e d d d e d d d . . 
-        . . . e e d d d d e e e e . . . 
-        . . . . . d d d d d d c . . . . 
-        . . c c c 2 c c c 2 c . . . . . 
-        . c c c c c 2 c c c 2 . . . . . 
-        d d c c c c 2 2 2 2 2 . . c . . 
-        d d d 2 2 2 2 5 2 2 5 2 c c . . 
-        . d . 2 2 2 2 2 2 2 2 2 c c . . 
-        . . c c 2 2 2 2 2 2 2 2 c c . . 
-        c c c 2 2 2 2 2 2 2 . . . . . . 
-        c c . . 2 2 2 . . . . . . . . . 
-        `],
-    500,
-    true
-    )
+    if (controller.right.isPressed() && controller.up.isPressed()) {
+        animation.runImageAnimation(
+        Mario,
+        [img`
+            . . . . . . . . . . . . d d . . 
+            . . . . . 2 2 2 2 2 . . d d . . 
+            . . . . 2 2 2 2 2 2 2 2 2 d . . 
+            . . . . e e e d d e d . c c . . 
+            . . . e d e d d d e d d c c . . 
+            . . . e d e e d d d e d d d . . 
+            . . . e e d d d d e e e e . . . 
+            . . . . . d d d d d d c . . . . 
+            . . c c c 2 c c c 2 c . . . . . 
+            . c c c c c 2 c c c 2 . . . . . 
+            d d c c c c 2 2 2 2 2 . . c . . 
+            d d d 2 2 2 2 5 2 2 5 2 c c . . 
+            . d . 2 2 2 2 2 2 2 2 2 c c . . 
+            . . c c 2 2 2 2 2 2 2 2 c c . . 
+            c c c 2 2 2 2 2 2 2 . . . . . . 
+            c c . . 2 2 2 . . . . . . . . . 
+            `,img`
+            . . . . . 2 2 2 2 2 . . . . . . 
+            . . . . 2 2 2 2 2 2 2 2 2 . . . 
+            . . . . e e e d d e d . . . . . 
+            . . . e d e d d d e d d d . . . 
+            . . . e d e e d d d e d d d . . 
+            . . . e e d d d d e e e e . . . 
+            . . . . . d d d d d d d . . . . 
+            . . . . c c 2 c c c . . . . . . 
+            . . . c c c c 2 2 c c . . . . . 
+            . . . c c c 2 2 5 2 2 . . . . . 
+            . . . c c c 2 2 2 2 2 2 . . . . 
+            . . . c c c d d d 2 2 2 . . . . 
+            . . . . c c d d 2 2 2 . . . . . 
+            . . . . 2 2 2 2 c c c . . . . . 
+            . . . . c c c c c c c c . . . . 
+            . . . . c c c c c . . . . . . . 
+            `],
+        500,
+        false
+        )
+    } else if (controller.left.isPressed() && controller.up.isPressed()) {
+        animation.runImageAnimation(
+        Mario,
+        [img`
+            . . d d . . . . . . . . . . . . 
+            . . d d . . 2 2 2 2 2 . . . . . 
+            . . d 2 2 2 2 2 2 2 2 2 . . . . 
+            . . c c . d e d d e e e . . . . 
+            . . c c d d e d d d e d e . . . 
+            . . d d d e d d d e e d e . . . 
+            . . . e e e e d d d d e e . . . 
+            . . . . c d d d d d d . . . . . 
+            . . . . . c 2 c c c 2 c c c . . 
+            . . . . . 2 c c c 2 c c c c c . 
+            . . c . . 2 2 2 2 2 c c c c d d 
+            . . c c 2 5 2 2 5 2 2 2 2 d d d 
+            . . c c 2 2 2 2 2 2 2 2 2 . d . 
+            . . c c 2 2 2 2 2 2 2 2 c c . . 
+            . . . . . . 2 2 2 2 2 2 2 c c c 
+            . . . . . . . . . 2 2 2 . . c c 
+            `,img`
+            . . . . . . 2 2 2 2 2 . . . . . 
+            . . . 2 2 2 2 2 2 2 2 2 . . . . 
+            . . . . . d e d d e e e . . . . 
+            . . . d d d e d d d e d e . . . 
+            . . d d d e d d d e e d e . . . 
+            . . . e e e e d d d d e e . . . 
+            . . . . d d d d d d d . . . . . 
+            . . . . . . c c c 2 c c . . . . 
+            . . . . . c c 2 2 c c c c . . . 
+            . . . . . 2 2 5 2 2 c c c . . . 
+            . . . . 2 2 2 2 2 2 c c c . . . 
+            . . . . 2 2 2 d d d c c c . . . 
+            . . . . . 2 2 2 d d c c . . . . 
+            . . . . . c c c 2 2 2 2 . . . . 
+            . . . . c c c c c c c c . . . . 
+            . . . . . . . c c c c c . . . . 
+            `],
+        500,
+        false
+        )
+    } else {
+        animation.runImageAnimation(
+        Mario,
+        [img`
+            . . . . . . . . . . . . d d . . 
+            . . . . . 2 2 2 2 2 . . d d . . 
+            . . . . 2 2 2 2 2 2 2 2 2 d . . 
+            . . . . e e e d d e d . c c . . 
+            . . . e d e d d d e d d c c . . 
+            . . . e d e e d d d e d d d . . 
+            . . . e e d d d d e e e e . . . 
+            . . . . . d d d d d d c . . . . 
+            . . c c c 2 c c c 2 c . . . . . 
+            . c c c c c 2 c c c 2 . . . . . 
+            d d c c c c 2 2 2 2 2 . . c . . 
+            d d d 2 2 2 2 5 2 2 5 2 c c . . 
+            . d . 2 2 2 2 2 2 2 2 2 c c . . 
+            . . c c 2 2 2 2 2 2 2 2 c c . . 
+            c c c 2 2 2 2 2 2 2 . . . . . . 
+            c c . . 2 2 2 . . . . . . . . . 
+            `,img`
+            . . . . . 2 2 2 2 2 . . . . . . 
+            . . . . 2 2 2 2 2 2 2 2 2 . . . 
+            . . . . e e e d d e d . . . . . 
+            . . . e d e d d d e d d d . . . 
+            . . . e d e e d d d e d d d . . 
+            . . . e e d d d d e e e e . . . 
+            . . . . . d d d d d d d . . . . 
+            . . . . c c 2 c c c . . . . . . 
+            . . . c c c c 2 2 c c . . . . . 
+            . . . c c c 2 2 5 2 2 . . . . . 
+            . . . c c c 2 2 2 2 2 2 . . . . 
+            . . . c c c d d d 2 2 2 . . . . 
+            . . . . c c d d 2 2 2 . . . . . 
+            . . . . 2 2 2 2 c c c . . . . . 
+            . . . . c c c c c c c c . . . . 
+            . . . . c c c c c . . . . . . . 
+            `],
+        500,
+        false
+        )
+    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba, function (sprite2, otherSprite) {
     info.changeLifeBy(-1)
-    kaka.destroy()
+    kaka.destroy(effects.disintegrate, 500)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    animation.runImageAnimation(
-    Mario,
-    [img`
-        . . . . . 2 2 2 2 2 . . . . . . 
-        . . . . 2 2 2 2 2 2 2 2 2 . . . 
-        . . . . e e e d d e d . . . . . 
-        . . . e d e d d d e d d d . . . 
-        . . . e d e e d d d e d d d . . 
-        . . . e e d d d d e e e e . . . 
-        . . . . . d d d d d d d . . . . 
-        . . c c c c 2 2 c c . . . . . . 
-        d d c c c c 2 2 2 c c c d d d . 
-        d d d . c c 2 5 2 2 2 c c d d . 
-        d d . . 2 2 2 2 2 2 2 2 2 . c . 
-        . . . 2 2 2 2 2 2 2 2 2 2 c c . 
-        . . 2 2 2 2 2 2 2 2 2 2 2 c c . 
-        . c c c 2 2 2 . . . 2 2 2 c c . 
-        . c c c . . . . . . . . . . . . 
-        . . c c c . . . . . . . . . . . 
-        `,img`
-        . . . . . 2 2 2 2 2 . . . . . . 
-        . . . . 2 2 2 2 2 2 2 2 2 . . . 
-        . . . . e e e d d e d . . . . . 
-        . . . e d e d d d e d d d . . . 
-        . . . e d e e d d d e d d d . . 
-        . . . e e d d d d e e e e . . . 
-        . . . . . d d d d d d d . . . . 
-        . . . . c c c c c 2 c . d . . . 
-        . . . d c c c c c c c d d d . . 
-        . . . d c c c c c c d d d d . . 
-        . . d d 2 c c c c c c d d . . . 
-        . . c c 2 2 2 2 2 2 2 2 . . . . 
-        . . c 2 2 2 2 2 2 2 2 2 . . . . 
-        . . c 2 2 2 2 2 . 2 2 . . . . . 
-        . c . . . . . . c c c . . . . . 
-        . c . . . . . . c c c c . . . . 
-        `,img`
-        . . . . . 2 2 2 2 2 . . . . . . 
-        . . . . 2 2 2 2 2 2 2 2 2 . . . 
-        . . . . e e e d d e d . . . . . 
-        . . . e d e d d d e d d d . . . 
-        . . . e d e e d d d e d d d . . 
-        . . . e e d d d d e e e e . . . 
-        . . . . . d d d d d d d . . . . 
-        . . . . c c 2 c c c . . . . . . 
-        . . . c c c c 2 2 c c . . . . . 
-        . . . c c c 2 2 5 2 2 . . . . . 
-        . . . c c c 2 2 2 2 2 2 . . . . 
-        . . . c c c d d d 2 2 2 . . . . 
-        . . . . c c d d 2 2 2 . . . . . 
-        . . . . 2 2 2 2 c c c . . . . . 
-        . . . . c c c c c c c c . . . . 
-        . . . . c c c c c . . . . . . . 
-        `],
-    200,
-    true
-    )
+    if (Mario.vx == 100) {
+        animation.runImageAnimation(
+        Mario,
+        [img`
+            . . . . . 2 2 2 2 2 . . . . . . 
+            . . . . 2 2 2 2 2 2 2 2 2 . . . 
+            . . . . e e e d d e d . . . . . 
+            . . . e d e d d d e d d d . . . 
+            . . . e d e e d d d e d d d . . 
+            . . . e e d d d d e e e e . . . 
+            . . . . . d d d d d d d . . . . 
+            . . c c c c 2 2 c c . . . . . . 
+            d d c c c c 2 2 2 c c c d d d . 
+            d d d . c c 2 5 2 2 2 c c d d . 
+            d d . . 2 2 2 2 2 2 2 2 2 . c . 
+            . . . 2 2 2 2 2 2 2 2 2 2 c c . 
+            . . 2 2 2 2 2 2 2 2 2 2 2 c c . 
+            . c c c 2 2 2 . . . 2 2 2 c c . 
+            . c c c . . . . . . . . . . . . 
+            . . c c c . . . . . . . . . . . 
+            `,img`
+            . . . . . 2 2 2 2 2 . . . . . . 
+            . . . . 2 2 2 2 2 2 2 2 2 . . . 
+            . . . . e e e d d e d . . . . . 
+            . . . e d e d d d e d d d . . . 
+            . . . e d e e d d d e d d d . . 
+            . . . e e d d d d e e e e . . . 
+            . . . . . d d d d d d d . . . . 
+            . . . . c c c c c 2 c . d . . . 
+            . . . d c c c c c c c d d d . . 
+            . . . d c c c c c c d d d d . . 
+            . . d d 2 c c c c c c d d . . . 
+            . . c c 2 2 2 2 2 2 2 2 . . . . 
+            . . c 2 2 2 2 2 2 2 2 2 . . . . 
+            . c c 2 2 2 2 2 . 2 2 . . . . . 
+            . c . . . . . . c c c . . . . . 
+            . c . . . . . . c c c c . . . . 
+            `,img`
+            . . . . . 2 2 2 2 2 . . . . . . 
+            . . . . 2 2 2 2 2 2 2 2 2 . . . 
+            . . . . e e e d d e d . . . . . 
+            . . . e d e d d d e d d d . . . 
+            . . . e d e e d d d e d d d . . 
+            . . . e e d d d d e e e e . . . 
+            . . . . . d d d d d d d . . . . 
+            . . . . c c 2 c c c . . . . . . 
+            . . . c c c c 2 2 c c . . . . . 
+            . . . c c c 2 2 5 2 2 . . . . . 
+            . . . c c c 2 2 2 2 2 2 . . . . 
+            . . . c c c d d d 2 2 2 . . . . 
+            . . . . c c d d 2 2 2 . . . . . 
+            . . . . 2 2 2 2 c c c . . . . . 
+            . . . . c c c c c c c c . . . . 
+            . . . . c c c c c . . . . . . . 
+            `],
+        200,
+        true
+        )
+    } else {
+        animation.runImageAnimation(
+        Mario,
+        [img`
+            . . . . . 2 2 2 2 2 . . . . . . 
+            . . . . 2 2 2 2 2 2 2 2 2 . . . 
+            . . . . e e e d d e d . . . . . 
+            . . . e d e d d d e d d d . . . 
+            . . . e d e e d d d e d d d . . 
+            . . . e e d d d d e e e e . . . 
+            . . . . . d d d d d d d . . . . 
+            . . c c c c 2 2 c c . . . . . . 
+            d d c c c c 2 2 2 c c c d d d . 
+            d d d . c c 2 5 2 2 2 c c d d . 
+            d d . . 2 2 2 2 2 2 2 2 2 . c . 
+            . . . 2 2 2 2 2 2 2 2 2 2 c c . 
+            . . 2 2 2 2 2 2 2 2 2 2 2 c c . 
+            . c c c 2 2 2 . . . 2 2 2 c c . 
+            . c c c . . . . . . . . . . . . 
+            . . c c c . . . . . . . . . . . 
+            `,img`
+            . . . . . 2 2 2 2 2 . . . . . . 
+            . . . . 2 2 2 2 2 2 2 2 2 . . . 
+            . . . . e e e d d e d . . . . . 
+            . . . e d e d d d e d d d . . . 
+            . . . e d e e d d d e d d d . . 
+            . . . e e d d d d e e e e . . . 
+            . . . . . d d d d d d d . . . . 
+            . . . . c c c c c 2 c . d . . . 
+            . . . d c c c c c c c d d d . . 
+            . . . d c c c c c c d d d d . . 
+            . . d d 2 c c c c c c d d . . . 
+            . . c c 2 2 2 2 2 2 2 2 . . . . 
+            . . c 2 2 2 2 2 2 2 2 2 . . . . 
+            . c c 2 2 2 2 2 . 2 2 . . . . . 
+            . c . . . . . . c c c . . . . . 
+            . c . . . . . . c c c c . . . . 
+            `,img`
+            . . . . . 2 2 2 2 2 . . . . . . 
+            . . . . 2 2 2 2 2 2 2 2 2 . . . 
+            . . . . e e e d d e d . . . . . 
+            . . . e d e d d d e d d d . . . 
+            . . . e d e e d d d e d d d . . 
+            . . . e e d d d d e e e e . . . 
+            . . . . . d d d d d d d . . . . 
+            . . . . c c 2 c c c . . . . . . 
+            . . . c c c c 2 2 c c . . . . . 
+            . . . c c c 2 2 5 2 2 . . . . . 
+            . . . c c c 2 2 2 2 2 2 . . . . 
+            . . . c c c d d d 2 2 2 . . . . 
+            . . . . c c d d 2 2 2 . . . . . 
+            . . . . 2 2 2 2 c c c . . . . . 
+            . . . . c c c c c c c c . . . . 
+            . . . . c c c c c . . . . . . . 
+            `],
+        200,
+        true
+        )
+    }
 })
 info.onLifeZero(function () {
     game.gameOver(false)
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite, location) {
-    info.changeLifeBy(-1)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -178,7 +321,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . d d c c c c c c 2 d d . . 
         . . . . 2 2 2 2 2 2 2 2 c c . . 
         . . . . 2 2 2 2 2 2 2 2 2 c . . 
-        . . . . . 2 2 . 2 2 2 2 2 c . . 
+        . . . . . 2 2 . 2 2 2 2 2 c c . 
         . . . . . c c c . . . . . . c . 
         . . . . c c c c . . . . . . c . 
         `,img`
@@ -207,6 +350,7 @@ let deplacement = false
 let kaka: Sprite = null
 let Mario: Sprite = null
 tiles.setCurrentTilemap(tilemap`niveau1`)
+goomba2()
 info.setLife(3)
 Mario = sprites.create(img`
     . . . . . 2 2 2 2 2 . . . . . . 

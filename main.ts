@@ -2,6 +2,7 @@ namespace SpriteKind {
     export const goomba = SpriteKind.create()
     export const animation = SpriteKind.create()
     export const blockMystere = SpriteKind.create()
+    export const goomba2 = SpriteKind.create()
 }
 function animationMarcheGauche () {
     animation.runImageAnimation(
@@ -265,7 +266,7 @@ function animationMarcheDroite () {
     )
 }
 function Goomba2 () {
-    for (let valeur of tiles.getTilesByType(assets.tile`myTile4`)) {
+    for (let valeur of tiles.getTilesByType(assets.tile`myTile48`)) {
         kaka2 = sprites.create(img`
             . . . . . . f f f f . . . . . . 
             . . . . f f e e e e f f . . . . 
@@ -283,7 +284,7 @@ function Goomba2 () {
             . e e e e d d d d d d e e e e . 
             e e e e e e d d d d e e e e e e 
             e e e e e e . . . . e e e e e e 
-            `, SpriteKind.goomba)
+            `, SpriteKind.goomba2)
         tiles.placeOnTile(kaka2, valeur)
         tiles.setTileAt(valeur, assets.tile`myTile6`)
         if (Math.percentChance(50)) {
@@ -297,7 +298,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animationMarcheGauche()
 })
 function goomba1 () {
-    for (let valeur of tiles.getTilesByType(assets.tile`myTile4`)) {
+    for (let valeur of tiles.getTilesByType(assets.tile`myTile38`)) {
         kaka = sprites.create(img`
             . . . . . . f f f f . . . . . . 
             . . . . f f e e e e f f . . . . 
@@ -329,7 +330,6 @@ let deplacement = false
 let kaka2: Sprite = null
 let kaka: Sprite = null
 let Mario: Sprite = null
-goomba1()
 tiles.setCurrentTilemap(tilemap`niveau1`)
 info.setLife(3)
 Mario = sprites.create(img`
@@ -355,6 +355,8 @@ Mario.x = 24
 Mario.y = 220
 Mario.ay = 400
 scene.cameraFollowSprite(Mario)
+goomba1()
+Goomba2()
 game.onUpdate(function () {
     deplacement = controller.left.isPressed() || (controller.right.isPressed() || (controller.up.isPressed() || controller.down.isPressed()))
     if (!(deplacement)) {
@@ -371,7 +373,7 @@ game.onUpdate(function () {
     }
 })
 game.onUpdate(function () {
-    for (let valeur of sprites.allOfKind(SpriteKind.goomba)) {
+    for (let valeur of sprites.allOfKind(SpriteKind.goomba2)) {
         if (kaka2.isHittingTile(CollisionDirection.Left)) {
             kaka2.vx = 50
         } else if (kaka2.isHittingTile(CollisionDirection.Right)) {

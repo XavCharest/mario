@@ -7,6 +7,7 @@ namespace SpriteKind {
     export const goomba4 = SpriteKind.create()
     export const goomba5 = SpriteKind.create()
     export const goomba6 = SpriteKind.create()
+    export const piece = SpriteKind.create()
 }
 function Goomba () {
     for (let valeur of tiles.getTilesByType(assets.tile`myTile38`)) {
@@ -172,6 +173,223 @@ function Goomba () {
         }
     }
 }
+function e () {
+    for (let valeur of tiles.getTilesByType(assets.tile`myTile59`)) {
+        piece = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . f f f f f f f . . . . . 
+            . . . f 5 5 5 5 5 5 5 f . . . . 
+            . . f 5 4 4 4 4 4 5 5 5 f . . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 f . . 
+            . . f 5 4 4 4 4 4 5 5 5 f . . . 
+            . . . f 5 5 5 5 5 5 5 f . . . . 
+            . . . . f f f f f f f . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.piece)
+        animation.runImageAnimation(
+        piece,
+        [img`
+            . . . . f f f f f f f . . . . . 
+            . . . f 5 5 5 5 5 5 5 f . . . . 
+            . . f 5 4 4 4 4 4 5 5 5 f . . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 f . . 
+            . . f 5 4 4 4 4 4 5 5 5 f . . . 
+            . . . f 5 5 5 5 5 5 5 f . . . . 
+            . . . . f f f f f f f . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . f f f f f . . . . . . 
+            . . . . f 5 5 5 5 5 f . . . . . 
+            . . . f 5 4 4 4 4 5 5 f . . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 5 5 5 5 5 5 5 5 f . . . 
+            . . . f 5 4 4 4 4 5 5 f . . . . 
+            . . . . f 5 5 5 5 5 f . . . . . 
+            . . . . . f f f f f . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . f f f . . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . f 5 4 4 5 5 f . . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 5 5 5 5 5 5 f . . . . 
+            . . . . f 5 4 4 5 5 f . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . . f f f . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . f . . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 5 5 5 5 f . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . . f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . f . . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . . f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . f . . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . . f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . f . . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . . f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . f . . . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 4 5 5 5 f . . . . . 
+            . . . . f 5 5 5 5 5 f . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . . f 5 f . . . . . . . 
+            . . . . . . . f . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . f f f . . . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . f 5 4 4 5 5 f . . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 4 5 5 5 5 5 f . . . . 
+            . . . f 5 5 5 5 5 5 5 f . . . . 
+            . . . . f 5 4 4 5 5 f . . . . . 
+            . . . . . f 5 5 5 f . . . . . . 
+            . . . . . . f f f . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . f f f f f . . . . . . 
+            . . . . f 5 5 5 5 5 f . . . . . 
+            . . . f 5 4 4 4 4 5 5 f . . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 4 5 5 5 5 5 5 5 f . . . 
+            . . f 5 5 5 5 5 5 5 5 5 f . . . 
+            . . . f 5 4 4 4 4 5 5 f . . . . 
+            . . . . f 5 5 5 5 5 f . . . . . 
+            . . . . . f f f f f . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . f f f f f f f . . . . . 
+            . . . f 5 5 5 5 5 5 5 f . . . . 
+            . . f 5 4 4 4 4 4 5 5 5 f . . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 4 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 f . . 
+            . . f 5 4 4 4 4 4 5 5 5 f . . . 
+            . . . f 5 5 5 5 5 5 5 f . . . . 
+            . . . . f f f f f f f . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `],
+        100,
+        true
+        )
+        tiles.placeOnTile(piece, valeur)
+        tiles.setTileAt(valeur, assets.tile`myTile6`)
+    }
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba4, function (sprite2, otherSprite) {
     info.changeLifeBy(-1)
     kaka4.destroy(effects.disintegrate, 500)
@@ -251,6 +469,30 @@ function animationMarcheGauche () {
     true
     )
 }
+function mysetere () {
+    for (let valeur of tiles.getTilesByType(assets.tile`myTile1`)) {
+        block_mystere = sprites.create(img`
+            f 4 4 4 4 4 4 4 4 4 4 4 4 4 4 f 
+            4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+            4 5 f 5 5 5 5 5 5 5 5 5 5 f 5 f 
+            4 5 5 5 5 4 4 4 4 4 5 5 5 5 5 f 
+            4 5 5 5 4 4 f f f 4 4 5 5 5 5 f 
+            4 5 5 5 4 4 f 5 5 4 4 f 5 5 5 f 
+            4 5 5 5 4 4 f 5 5 4 4 f 5 5 5 f 
+            4 5 5 5 5 f f 5 4 4 4 f 5 5 5 f 
+            4 5 5 5 5 5 5 4 4 f f f 5 5 5 f 
+            4 5 5 5 5 5 5 4 4 f 5 5 5 5 5 f 
+            4 5 5 5 5 5 5 5 f f 5 5 5 5 5 f 
+            4 5 5 5 5 5 5 4 4 5 5 5 5 5 5 f 
+            4 5 5 5 5 5 5 4 4 f 5 5 5 5 5 f 
+            4 5 f 5 5 5 5 5 f f 5 5 5 f 5 f 
+            4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 f 
+            f f f f f f f f f f f f f f f f 
+            `, SpriteKind.blockMystere)
+        tiles.placeOnTile(block_mystere, valeur)
+        tiles.setTileAt(valeur, assets.tile`myTile6`)
+    }
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba3, function (sprite2, otherSprite) {
     info.changeLifeBy(-1)
     kaka3.destroy(effects.disintegrate, 500)
@@ -258,6 +500,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba3, function (sprite2, othe
 sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba6, function (sprite2, otherSprite) {
     info.changeLifeBy(-1)
     kaka5.destroy(effects.disintegrate, 500)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.blockMystere, function (sprite, otherSprite) {
+    e()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba5, function (sprite2, otherSprite) {
     info.changeLifeBy(-1)
@@ -472,10 +717,16 @@ function animationMarcheDroite () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile64`, function (sprite, location) {
     info.changeLifeBy(-10)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.piece, function (sprite, otherSprite) {
+    info.changeScoreBy(100)
+    sprites.destroy(piece)
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animationMarcheGauche()
 })
 let deplacement = false
+let block_mystere: Sprite = null
+let piece: Sprite = null
 let kaka6: Sprite = null
 let kaka5: Sprite = null
 let kaka4: Sprite = null
@@ -509,6 +760,7 @@ Mario.y = 220
 Mario.ay = 400
 scene.cameraFollowSprite(Mario)
 Goomba()
+mysetere()
 game.onUpdate(function () {
     deplacement = controller.left.isPressed() || (controller.right.isPressed() || (controller.up.isPressed() || controller.down.isPressed()))
     if (!(deplacement)) {

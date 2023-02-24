@@ -174,7 +174,7 @@ function Goomba () {
     }
 }
 function e () {
-    for (let valeur of tiles.getTilesByType(assets.tile`myTile59`)) {
+    for (let valeur of tiles.getTilesByType(assets.tile`myTile79`)) {
         piece = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -387,7 +387,7 @@ function e () {
         true
         )
         tiles.placeOnTile(piece, valeur)
-        tiles.setTileAt(valeur, assets.tile`myTile6`)
+        tiles.setTileAt(valeur, assets.tile`myTile79`)
     }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba4, function (sprite2, otherSprite) {
@@ -397,6 +397,27 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba4, function (sprite2, othe
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile63`, function (sprite, location) {
     info.changeLifeBy(-10)
 })
+function Appel_champignon () {
+    tiles.placeOnTile(Champignon, tiles.getTileLocation(15, 10))
+    Champignon = sprites.create(img`
+        . . . . . . c c c 6 6 . . . . . 
+        . . . . . . c c c 6 6 . . . . . 
+        . . . . . c 4 4 4 4 4 6 6 6 . . 
+        . . . 4 4 4 b 4 4 4 5 4 4 4 b . 
+        . . 6 4 4 4 4 4 4 b 4 b b b 4 6 
+        . e b 4 4 4 4 4 4 4 4 4 4 4 5 4 
+        e b b 4 4 4 b 4 4 4 4 b b 4 4 4 
+        f b 6 4 4 4 4 4 4 4 4 5 5 4 4 4 
+        . 8 c 6 6 6 6 b b 4 4 4 4 4 b 6 
+        . 8 c 6 6 6 6 b b 4 4 4 4 4 b 6 
+        8 7 e c c b b b b b b b b b c 7 
+        f 8 6 2 2 2 2 2 2 2 2 2 2 2 7 8 
+        f b f f f f f 7 7 6 8 f f e e b 
+        f 6 d f f f e f f f e e e f e 4 
+        . . 6 4 4 4 4 4 4 4 4 4 4 4 4 e 
+        . . f b b b 4 4 4 4 4 4 4 4 e . 
+        `, SpriteKind.Food)
+}
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile60`, function (sprite, location) {
     if (controller.right.isPressed()) {
         tiles.placeOnTile(Mario, tiles.getTileLocation(199, 12))
@@ -500,9 +521,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba3, function (sprite2, othe
 sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba6, function (sprite2, otherSprite) {
     info.changeLifeBy(-1)
     kaka5.destroy(effects.disintegrate, 500)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.blockMystere, function (sprite, otherSprite) {
-    e()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba5, function (sprite2, otherSprite) {
     info.changeLifeBy(-1)
@@ -651,9 +669,15 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 info.onLifeZero(function () {
     game.gameOver(false)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile87`, function (sprite, location) {
+    Appel_champignon()
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.goomba2, function (sprite2, otherSprite) {
     info.changeLifeBy(-1)
     kaka2.destroy(effects.disintegrate, 500)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    scaling.scaleByPixels(Mario, 0.5, ScaleDirection.Uniformly, ScaleAnchor.Middle)
 })
 function animationMarcheDroite () {
     animation.runImageAnimation(
@@ -718,6 +742,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile64`, function (sprite, 
     info.changeLifeBy(-10)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.piece, function (sprite, otherSprite) {
+    e()
     info.changeScoreBy(100)
     sprites.destroy(piece)
 })
@@ -726,6 +751,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 let deplacement = false
 let block_mystere: Sprite = null
+let Champignon: Sprite = null
 let piece: Sprite = null
 let kaka6: Sprite = null
 let kaka5: Sprite = null

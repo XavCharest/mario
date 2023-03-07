@@ -420,7 +420,7 @@ function Appel_champignon () {
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile60`, function (sprite, location) {
     if (controller.right.isPressed()) {
-        tiles.placeOnTile(Mario, tiles.getTileLocation(199, 12))
+        tiles.placeOnTile(Mario, tiles.getTileLocation(167.5, 12))
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile24`, function (sprite, location) {
@@ -428,7 +428,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile24`, function (sprite, 
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     if (controller.down.isPressed()) {
-        tiles.placeOnTile(Mario, tiles.getTileLocation(183, 37))
+        tiles.placeOnTile(Mario, tiles.getTileLocation(152, 37))
     }
 })
 function animationMarcheGauche () {
